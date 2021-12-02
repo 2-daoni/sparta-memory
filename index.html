@@ -5,14 +5,24 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
   <title>내 기록을 공유할게!</title>
+  <meta property="og:title" content="오니님의 스터디 기록" />
+  <meta property="og:description" content="내가 만든 기록 공유 페이지" />
+  <meta property="og:image" content="https://cdn.pixabay.com/photo/2017/09/05/10/20/business-2717066_640.jpg" />
   <style>
+    * {
+      font-family: 'Do Hyeon', sans-serif;
+    }
+
     .title {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-top: 100px;
+      margin-top: 50px;
     }
 
     .link {
@@ -45,7 +55,7 @@
     .map {
       width: 500px;
       height: 500px;
-      background-color: red;
+      border-radius: 30px;
       margin-right: 30px;
     }
 
@@ -57,26 +67,65 @@
     .img {
       width: 450px;
       height: 300px;
-      background-image: url('https://cdn.pixabay.com/photo/2015/12/04/14/05/code-1076536__340.jpg');
+      background-image: url('/img.JPG');
       background-position: center;
       background-size: cover;
       border-radius: 30px;
     }
 
-    .story>h2 {
+    h2 {
       margin: 20px 0px 0px 0px;
       color: rgb(4, 36, 138);
     }
 
-    .story>h3 {
+    h3 {
       margin: 10px 0px 0px 0px;
       font-size: 16px;
       font-weight: normal;
       color: gray;
     }
 
-    .story>p {
+    p {
       line-height: 24px;
+    }
+
+    @media screen and (max-width: 640px) {
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        font-size: 26px;
+        margin-bottom: 20px;
+      }
+
+      .box {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .map {
+        width: 100%;
+        height: 200px;
+      }
+
+      .story {
+        margin-top: 30px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 50px;
+      }
+
+      .text {
+        margin-left: 20px;
+      }
+
+
+      .img {
+        width: 100%;
+        height: 200px;
+      }
     }
   </style>
 </head>
@@ -87,26 +136,27 @@
     <a href="https://www.notion.so/daoni/4208a9762f3a4a559c7eb67c79bc72fe" class="link">오니의 모든 기록 보러가기 ></a>
   </div>
   <div class="box">
-    <div class="map"></div>
+    <div class="map" id="map"></div>
     <div class="story">
       <div class="img"></div>
-      <h2>오니의 노션</h2>
-      <h3>내가 직접 듣고 공부하고 기록한 내용</h3>
-      <p>
-        프론트엔드 개발자를 목표로 <br />
-        내게 필요한 이런저런 강의를 들으며 <br />
-        나의 언어대로 작성한 글들. <br />
-        많이 모자르지만 더 열심히 해서 <br />
-        성장하는 내가 되야겠다.
-      </p>
+      <div class="text">
+        <h2>오니의 노션</h2>
+        <h3>내가 직접 듣고 공부하고 기록한 내용</h3>
+        <p>
+          프론트엔드 개발자를 목표로 <br />
+          내게 필요한 이런저런 강의를 들으며 <br />
+          나의 언어대로 작성한 글들. <br />
+          많이 모자르지만 더 열심히 해서 <br />
+          성장하는 내가 되야겠다.
+        </p>
+      </div>
+
     </div>
   </div>
-
-  <!-- 지도 -->
   <script type="text/javascript"
-    src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=535068688f1a8bca1c21a9445ede0a89"></script>
+    src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=e3e396f22cb334806b63a690a379b322&libraries=services"></script>
   <script>
-    var markerPosition = new kakao.maps.LatLng(위도, 경도)
+    var markerPosition = new kakao.maps.LatLng(37.6486290, 126.7588420)
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
       mapOption = {
         center: markerPosition, // 지도의 중심좌표
